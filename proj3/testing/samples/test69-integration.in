@@ -1,0 +1,15 @@
+# check a variety of commands
+D HEADER "commit [a-f0-9]+"
+D DATE "Date: \w\w\w \w\w\w \d+ \d\d:\d\d:\d\d \d\d\d\d [-+]\d\d\d\d"
+> init
+<<<
++ f.txt wug.txt
+> add f.txt
+<<<
+> commit "added f.txt"
+<<<
+> commit "added f.txt"
+No changes added to the commit.
+<<<
+> branch other
+<<<

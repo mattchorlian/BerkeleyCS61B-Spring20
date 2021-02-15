@@ -1,0 +1,36 @@
+# Standard commands and definitions
+> init
+<<<
+
+D ARBLINE "[^\n]*(?=\n|\Z)"
+# Zero or more arbitrary full lines of text.
+D ARBLINES "(?:(?:.|\n)*(?:\n|\Z)|\A|\Z)"
+
+# Initialize and add two files.
++ f.txt wug.txt
++ g.txt notwug.txt
+> add g.txt
+<<<
+> add f.txt
+<<<
+# Status with two adds
+
+> rm f.txt
+<<<
+> status
+=== Branches ===
+\*master
+
+=== Staged Files ===
+g.txt
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+${ARBLINES}
+
+<<<*
+# File was not tracked, so make sure it's still there
+= f.txt wug.txt
